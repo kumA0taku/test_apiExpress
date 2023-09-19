@@ -1,0 +1,34 @@
+// {
+//     "version": "0.2.0",
+//     "configurations": [
+//       {
+//         "type": "node",
+//         "request": "launch",
+//         "name": "Launch Node.js with nodemon",
+//         "runtimeExecutable": "nodemon",
+//         "program": "${workspaceFolder}/server.js",  // Adjust the path to your server.js
+//         "restart": true,
+//         "console": "integratedTerminal",
+//         "internalConsoleOptions": "neverOpen",
+//         "skipFiles": ["<node_internals>/**"],
+//         "outFiles": []
+//       }
+//     ]
+//   }
+
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Express.js App",
+      "program": "${workspaceFolder}/server.js", // Adjust the path to your server.js file
+      "cwd": "${workspaceFolder}",
+      "protocol": "auto",
+      "runtimeExecutable": "nodemon", // Use nodemon to run the server (if installed)
+      "runtimeArgs": ["--inspect"],
+      "port": 9229 // Port for debugging
+    }
+  ]
+}
