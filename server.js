@@ -50,6 +50,21 @@ app.get("/assets", async (req, res) => {
   });
 });
 
+// app.get("/collar", async (req, res) => {
+//   // let params = req.query;
+//   // console.log(params.id);
+//   // console.log(params.name);
+//   connection.connect();
+//   connection.query("SELECT * FROM collar", function (error, results) {
+//     if(error){
+//       console.error("Error while updating asset: ", error.message);
+//       res.status(500).json({error: "Internal Server Error"});
+//       return;
+//     }
+//     res.json( results);
+//   });
+// });
+
 app.get("/get_user", async (req, res) => {
   let params = req.query;
   console.log(params.id);
@@ -171,6 +186,34 @@ app.put("/update_asset/", async (req, res, next) => {
     // }catch(err){
     // console.error(`Error while getting programming languages `, err.message);
     // }
+    if(error){
+      console.error("Error while updating asset: ", error.message);
+      res.status(500).json({error: "Internal Server Error"});
+      return;
+    }
+    res.json( results);
+  });
+});
+
+app.delete("/delete_user/", async (req, res, next) => {
+  let params = req.query;
+  console.log(params.id);
+  connection.connect();
+  connection.query(`DELETE FROM persons_info WHERE id= "${params.id}"`, function (error, results) {
+    if(error){
+      console.error("Error while updating asset: ", error.message);
+      res.status(500).json({error: "Internal Server Error"});
+      return;
+    }
+    res.json( results);
+  });
+});
+
+app.delete("/delete_asset/", async (req, res, next) => {
+  let params = req.query;
+  console.log(params.id);
+  connection.connect();
+  connection.query(`DELETE FROM assets WHERE id= "${params.id}"`, function (error, results) {
     if(error){
       console.error("Error while updating asset: ", error.message);
       res.status(500).json({error: "Internal Server Error"});
