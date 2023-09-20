@@ -50,21 +50,6 @@ app.get("/assets", async (req, res) => {
   });
 });
 
-// app.get("/collar", async (req, res) => {
-//   // let params = req.query;
-//   // console.log(params.id);
-//   // console.log(params.name);
-//   connection.connect();
-//   connection.query("SELECT * FROM collar", function (error, results) {
-//     if(error){
-//       console.error("Error while updating asset: ", error.message);
-//       res.status(500).json({error: "Internal Server Error"});
-//       return;
-//     }
-//     res.json( results);
-//   });
-// });
-
 app.get("/get_user", async (req, res) => {
   let params = req.query;
   console.log(params.id);
